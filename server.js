@@ -8,10 +8,10 @@ app.use(cors())
 app.use(express.json())
 
 const openai = new OpenAI({
-  apiKey: "PASTE_OPENAI_API_KEY_HERE"
+  apiKey: process.env.OPENAI_API_KEY
 })
 
-const ASSISTANT_ID = "PASTE_ASSISTANT_ID_HERE"
+const ASSISTANT_ID = process.env.ASSISTANT_ID
 
 app.post("/chat", async (req, res) => {
   try {
