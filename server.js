@@ -71,8 +71,10 @@ app.post("/chat", async (req, res) => {
 
       runStatus =
         await openai.beta.threads.runs.retrieve(
-          currentThreadId,
-          run.id
+          run.id,
+    {
+      thread_id: currentThreadId,
+    }
         )
 
       console.log("RUN STATUS:", runStatus.status)
